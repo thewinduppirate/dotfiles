@@ -34,7 +34,7 @@ function knownhostrm() {
  	if ! [[ $1 =~ $re ]] ; then
 		echo "error: line number missing" >&2;
 	else
-		sed -i '' "$1d" ~/.ssh/known_hosts
+		sed -i "$1d" ~/.ssh/known_hosts
 	fi
 }
 
@@ -47,7 +47,7 @@ alias weather="curl 'wttr.in?F'"
 alias config='/usr/bin/git --git-dir=/home/tom/.dotfiles --work-tree=/home/tom'
 
 ## Script dependent aliases
-alias serverpass="grep suffix= /home/tom/Work/Scripts/ServerPop/server-pop.sh | cut -d \' -f 2 | xclip -selection c"
+alias serverpass="echo workserversuffix | xclip -selection c"
 alias get-temp=/home/tom/Projects/Scripts/get-temps.sh
 
 ## Machine dependent aliases
