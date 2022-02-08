@@ -3,7 +3,7 @@ path+=('/home/tom/.local/bin')
 export PATH
 export EDITOR=nano
 # source API keys as env vars
-source ./.apikeys
+source .apikeys
 
 # Function to scan given IP(s / range) for open port 22s
 function scanssh () {
@@ -47,7 +47,7 @@ alias weather="curl 'wttr.in?F'"
 alias config='/usr/bin/git --git-dir=/home/tom/.dotfiles --work-tree=/home/tom'
 
 ## Script dependent aliases
-alias serverpass="echo workserversuffix | xclip -selection c"
+alias serverpass="echo $workserversuffix | xclip -selection c"
 alias get-temp=/home/tom/Projects/Scripts/get-temps.sh
 
 ## Machine dependent aliases
