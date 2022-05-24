@@ -6,17 +6,17 @@ export EDITOR=nano
 source .apikeys
 
 # Function to scan given IP(s / range) for open port 22s
-function scanssh () {
+function scanssh {
 	nmap "$@" -p 22 | grep -B4 open | grep for | cut -d " " -f 5;
 }
 
 # Function to get IP info (Org, location etc).
-function ipinfo() {
+function ipinfo {
 	curl -su $ipinfokey: ipinfo.io/$1
 }
 
 # Function to get IP info and extract ASN.
-function asn() {
+function asn {
 	prefix=ipinfo.io
 	suffix=/org
 	if [[ -n "$1" ]]
@@ -29,12 +29,29 @@ function asn() {
 }
 
 # Function to delete a given line number in the known_hosts file.
-function knownhostrm() {
+function knownhostrm {
 	re='^[0-9]+$'
  	if ! [[ $1 =~ $re ]] ; then
 		echo "error: line number missing" >&2;
 	else
 		sed -i "$1d" ~/.ssh/known_hosts
+	fi
+}
+
+# Function to get a random number modulo X
+function randNum {
+	if [[ -z "$2" ]]
+	then
+		if [[ -n "$1" ]]
+		then
+			num=$1
+			(( randNumber = $RANDOM % $num ))
+			echo $randNumber
+		else
+			echo "Error: you didn't pass an argument" >&2
+		fi
+	else
+		echo "Error: you passed too many arguments" >&2
 	fi
 }
 
