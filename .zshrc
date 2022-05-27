@@ -62,6 +62,7 @@ alias json2csv="jq -r '(map(keys) | add | unique) as \$cols | map(. as \$row | \
 alias weather="curl 'wttr.in?F'"
 # Alias for dotfile management (https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git)
 alias config='/usr/bin/git --git-dir=/home/tom/.dotfiles --work-tree=/home/tom'
+alias john-task-report="task project:work end.after:today-1wk completed"
 
 ## Script dependent aliases
 alias serverpass='echo "$workserversuffix" | xclip -selection c'
@@ -75,3 +76,4 @@ alias battery-set="sudo tlp setcharge 40 60"
 
 # Display on opening terminal
 fortune -o -s fortunes | cowsay -f stegosaurus
+
