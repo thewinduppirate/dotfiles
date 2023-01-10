@@ -63,6 +63,7 @@ alias weather="curl 'wttr.in?F'"
 # Alias for dotfile management (https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git)
 alias config='/usr/bin/git --git-dir=/home/tom/.dotfiles --work-tree=/home/tom'
 alias john-task-report="task project:work end.after:today-1wk completed"
+alias brownnoise="play -c 5 -n synth brown vol -20dB"
 
 ## Script dependent aliases
 alias serverpass='echo "$workserversuffix" | xclip -selection c'
