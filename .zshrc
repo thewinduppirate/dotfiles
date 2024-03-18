@@ -78,3 +78,17 @@ alias battery-set="sudo tlp setcharge 40 60"
 # Display on opening terminal
 fortune -o -s fortunes | cowsay -f stegosaurus
 
+# Create and send taskwarror task list to Remarkable
+function TaskList {
+	task sync
+	outdir=$(mktemp --dir)
+	task status:pending -WAITING +READY \( due.before=tomorrow or due.none: \) export | jq -r 'sort_by(-.urgency) | .[:20] | (["ID","Desc","Project","Urgency"] | (., map(length*"-"))), (.[] | [.id, .description, .project, .urgency]) | @tsv' | column -t -s $'\t' -c 80 -W 2,3 | pandoc -s -H ./TaskList.tex -o $outdir/TaskList.pdf
+	remarkable-cli-tooling/resync.py -v --if-exists replace -r Remarkable push $outdir/TaskList.pdf
+}
+
+# >>>> Vagrant command completion (start)
+fpath=(/opt/vagrant/embedded/gems/2.3.4/gems/vagrant-2.3.4/contrib/zsh $fpath)
+compinit
+# <<<<  Vagrant command completion (end)
+
+eval "$(atuin init zsh)"
