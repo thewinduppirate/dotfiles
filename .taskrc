@@ -39,3 +39,6 @@ include dark-green-256.theme
 #include solarized-light-256.theme
 #include no-color.theme
 
+sync.server.origin=tasks.kinky.bingo
+sync.encryption_secret=$task_sync_secret
+sync.server.client_id=$task_sync_client_id

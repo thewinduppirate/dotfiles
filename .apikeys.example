@@ -1,2 +1,4 @@
 export ipinfokey="################"
 export workserversuffix="#########"
+export task_sync_secret="#########"
+export task_sync_client_id="######"
