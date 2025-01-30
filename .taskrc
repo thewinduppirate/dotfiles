@@ -39,6 +39,14 @@ include dark-green-256.theme
 #include solarized-light-256.theme
 #include no-color.theme
 
-sync.server.origin=tasks.kinky.bingo
+sync.server.url=http://tasks.kinky.bingo:8080
+#sync.server.origin=http://tasks.kinky.bingo:8080
 sync.encryption_secret=$task_sync_secret
 sync.server.client_id=$task_sync_client_id
+context.jobs.read=project:jobs
+context.jobs.write=project:jobs
+
+report.next.filter=status:pending -WAITING -BLOCKED limit:page
+
+recurrence.confirmation=no
+news.version=3.2.0
